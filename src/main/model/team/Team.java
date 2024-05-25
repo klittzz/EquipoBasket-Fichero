@@ -4,6 +4,7 @@ import java.util.Stack;
 
 import main.model.match.Match;
 import main.model.team.player.Player;
+import main.util.FileUtil;
 
 public class Team {
 
@@ -12,6 +13,13 @@ public class Team {
 
     public Team(ArrayList<Player> players) {
         this.players = players;
+    }
+
+    // Este método actualizará el fichero del último partido y el del global
+
+    public void updateFiles(Team team) {
+        FileUtil.fileWriter(team.getResults().peek().toString(), "Match",1);
+        FileUtil.fileWriter(team.getResults().peek().toString(), "SeasonMatches", 0);
     }
 
     public ArrayList<Player> getPlayers() {

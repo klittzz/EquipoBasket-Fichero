@@ -60,7 +60,7 @@ public class TeamBasketView {
                     else if(team.getPlayers().size() < 14) System.out.println("No se puede jugar el partido ya que no hay jugadores suficientes.");
                     else {
                         playMatch(team.getResults(), team.getPlayers());
-                        updateFiles(team);
+                        controller.updateFiles(team);
                         showLastMatch();
                     }
                     break;
@@ -254,12 +254,5 @@ public class TeamBasketView {
             if(dorsal == team.getPlayers().get(i).getDorsal()) return false;
         }
         return true;
-    }
-
-    // Este método actualizará el fichero del último partido y el del global
-
-    private void updateFiles(Team team) {
-        FileUtil.fileWriter(team.getResults().peek().toString(), "Match",1);
-        FileUtil.fileWriter(team.getResults().peek().toString(), "SeasonMatches", 0);
     }
 }

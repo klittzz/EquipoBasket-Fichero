@@ -24,4 +24,8 @@ public class BasketTeamController {
     public void playMatch(Stack<Match> results, String rivalTeam, MatchType type, ArrayList<Player> players) throws NoSuchFileException{
         results.push(new Match(rivalTeam, type, players));
     }
+
+    public void updateFiles(Team team){
+        team.updateFiles(team);
+    }
 }
